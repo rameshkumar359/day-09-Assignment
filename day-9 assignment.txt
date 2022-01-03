@@ -1,0 +1,852 @@
+day-09 assignment
+
+Q.1)Solving problems using array functions on rest countries data.
+a)Get all the countries from Asia continent /region using Filter function
+b)Get all the countries with a population of less than 2 lakhs using Filter function
+c)Print the following details name, capital, flag using forEach function
+d)Print the total population of countries using reduce function
+e)Print the country which uses US Dollars as currency.
+
+Answer:
+a)Get all the countries from Asia continent /region using Filter function
+
+code:
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json")
+xhr.onload=function(){
+    if(xhr.status>=200 && xhr.status<300)
+    {
+        let data=JSON.parse(xhr.response)
+        let asia=data.filter((asia)=>asia.region==="Asia")
+        console.log(asia)
+    }
+}
+
+xhr.send()
+
+output:
+
+array(50) [ {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, … ]
+​
+0: Object { name: "Afghanistan", alpha2Code: "AF", alpha3Code: "AFG", … }
+​​
+alpha2Code: "AF"
+​​
+alpha3Code: "AFG"
+​​
+altSpellings: Array [ "AF", "Afġānistān" ]
+​​
+area: 652230
+​​
+borders: Array(6) [ "IRN", "PAK", "TKM", … ]
+​​
+callingCodes: Array [ "93" ]
+​​
+capital: "Kabul"
+​​
+cioc: "AFG"
+​​
+currencies: Array [ {…} ]
+​​
+demonym: "Afghan"
+​​
+flag: "https://restcountries.eu/data/afg.svg"
+​​
+gini: 27.8
+​​
+languages: Array(3) [ {…}, {…}, {…} ]
+​​
+latlng: Array [ 33, 65 ]
+​​
+name: "Afghanistan"
+​​
+nativeName: "افغانستان"
+​​
+numericCode: "004"
+​​
+population: 27657145
+​​
+region: "Asia"
+​​
+regionalBlocs: Array [ {…} ]
+​​
+subregion: "Southern Asia"
+​​
+timezones: Array [ "UTC+04:30" ]
+​​
+topLevelDomain: Array [ ".af" ]
+​​
+translations: Object { de: "Afghanistan", es: "Afganistán", fr: "Afghanistan", … }
+​​
+<prototype>: Object { … }
+​
+1: Object { name: "Armenia", alpha2Code: "AM", alpha3Code: "ARM", … }
+​
+2: Object { name: "Azerbaijan", alpha2Code: "AZ", alpha3Code: "AZE", … }
+​
+3: Object { name: "Bahrain", alpha2Code: "BH", alpha3Code: "BHR", … }
+​
+4: Object { name: "Bangladesh", alpha2Code: "BD", alpha3Code: "BGD", … }
+​
+5: Object { name: "Bhutan", alpha2Code: "BT", alpha3Code: "BTN", … }
+​
+6: Object { name: "Brunei Darussalam", alpha2Code: "BN", alpha3Code: "BRN", … }
+​
+7: Object { name: "Cambodia", alpha2Code: "KH", alpha3Code: "KHM", … }
+​
+8: Object { name: "China", alpha2Code: "CN", alpha3Code: "CHN", … }
+​
+9: Object { name: "Georgia", alpha2Code: "GE", alpha3Code: "GEO", … }
+​
+10: Object { name: "Hong Kong", alpha2Code: "HK", alpha3Code: "HKG", … }
+​
+11: Object { name: "India", alpha2Code: "IN", alpha3Code: "IND", … }
+​
+12: Object { name: "Indonesia", alpha2Code: "ID", alpha3Code: "IDN", … }
+​
+13: Object { name: "Iran (Islamic Republic of)", alpha2Code: "IR", alpha3Code: "IRN", … }
+​
+14: Object { name: "Iraq", alpha2Code: "IQ", alpha3Code: "IRQ", … }
+​
+15: Object { name: "Israel", alpha2Code: "IL", alpha3Code: "ISR", … }
+​
+16: Object { name: "Japan", alpha2Code: "JP", alpha3Code: "JPN", … }
+​
+17: Object { name: "Jordan", alpha2Code: "JO", alpha3Code: "JOR", … }
+​
+18: Object { name: "Kazakhstan", alpha2Code: "KZ", alpha3Code: "KAZ", … }
+​
+19: Object { name: "Kuwait", alpha2Code: "KW", alpha3Code: "KWT", … }
+​
+20: Object { name: "Kyrgyzstan", alpha2Code: "KG", alpha3Code: "KGZ", … }
+​
+21: Object { name: "Lao People's Democratic Republic", alpha2Code: "LA", alpha3Code: "LAO", … }
+​
+22: Object { name: "Lebanon", alpha2Code: "LB", alpha3Code: "LBN", … }
+​
+23: Object { name: "Macao", alpha2Code: "MO", alpha3Code: "MAC", … }
+​
+24: Object { name: "Malaysia", alpha2Code: "MY", alpha3Code: "MYS", … }
+​
+25: Object { name: "Maldives", alpha2Code: "MV", alpha3Code: "MDV", … }
+​
+26: Object { name: "Mongolia", alpha2Code: "MN", alpha3Code: "MNG", … }
+​
+27: Object { name: "Myanmar", alpha2Code: "MM", alpha3Code: "MMR", … }
+​
+28: Object { name: "Nepal", alpha2Code: "NP", alpha3Code: "NPL", … }
+​
+29: Object { name: "Korea (Democratic People's Republic of)", alpha2Code: "KP", alpha3Code: "PRK", … }
+​
+30: Object { name: "Oman", alpha2Code: "OM", alpha3Code: "OMN", … }
+​
+31: Object { name: "Pakistan", alpha2Code: "PK", alpha3Code: "PAK", … }
+​
+32: Object { name: "Palestine, State of", alpha2Code: "PS", alpha3Code: "PSE", … }
+​
+33: Object { name: "Philippines", alpha2Code: "PH", alpha3Code: "PHL", … }
+​
+34: Object { name: "Qatar", alpha2Code: "QA", alpha3Code: "QAT", … }
+​
+35: Object { name: "Saudi Arabia", alpha2Code: "SA", alpha3Code: "SAU", … }
+​
+36: Object { name: "Singapore", alpha2Code: "SG", alpha3Code: "SGP", … }
+​
+37: Object { name: "Korea (Republic of)", alpha2Code: "KR", alpha3Code: "KOR", … }
+​
+38: Object { name: "Sri Lanka", alpha2Code: "LK", alpha3Code: "LKA", … }
+​
+39: Object { name: "Syrian Arab Republic", alpha2Code: "SY", alpha3Code: "SYR", … }
+​
+40: Object { name: "Taiwan", alpha2Code: "TW", alpha3Code: "TWN", … }
+​
+41: Object { name: "Tajikistan", alpha2Code: "TJ", alpha3Code: "TJK", … }
+​
+42: Object { name: "Thailand", alpha2Code: "TH", alpha3Code: "THA", … }
+​
+43: Object { name: "Timor-Leste", alpha2Code: "TL", alpha3Code: "TLS", … }
+​
+44: Object { name: "Turkey", alpha2Code: "TR", alpha3Code: "TUR", … }
+​
+45: Object { name: "Turkmenistan", alpha2Code: "TM", alpha3Code: "TKM", … }
+​
+46: Object { name: "United Arab Emirates", alpha2Code: "AE", alpha3Code: "ARE", … }
+​
+47: Object { name: "Uzbekistan", alpha2Code: "UZ", alpha3Code: "UZB", … }
+​
+48: Object { name: "Viet Nam", alpha2Code: "VN", alpha3Code: "VNM", … }
+​
+49: Object { name: "Yemen", alpha2Code: "YE", alpha3Code: "YEM", … }
+​
+length: 50
+​
+<prototype>: Array []
+
+
+
+b)Get all the countries with a population of less than 2 lakhs using Filter function
+
+
+code:
+
+
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json")
+xhr.onload=function(){
+    if(xhr.status>=200 && xhr.status<300)
+    {
+        let data=JSON.parse(xhr.response)
+        let pop=data.filter((pop)=>pop.population<200000)
+        console.log(pop)
+    }
+}
+
+xhr.send()
+
+
+output:
+
+Array(63) [ {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, … ]
+​
+0: Object { name: "Åland Islands", alpha2Code: "AX", alpha3Code: "ALA", … }
+​​
+alpha2Code: "AX"
+​​
+alpha3Code: "ALA"
+​​
+altSpellings: Array(4) [ "AX", "Aaland", "Aland", … ]
+​​
+area: 1580
+​​
+borders: Array []
+​​
+callingCodes: Array [ "358" ]
+​​
+capital: "Mariehamn"
+​​
+cioc: ""
+​​
+currencies: Array [ {…} ]
+​​
+demonym: "Ålandish"
+​​
+flag: "https://restcountries.eu/data/ala.svg"
+​​
+gini: null
+​​
+languages: Array [ {…} ]
+​​
+latlng: Array [ 60.116667, 19.9 ]
+​​
+name: "Åland Islands"
+​​
+nativeName: "Åland"
+​​
+numericCode: "248"
+​​
+population: 28875
+​​
+region: "Europe"
+​​
+regionalBlocs: Array [ {…} ]
+​​
+subregion: "Northern Europe"
+​​
+timezones: Array [ "UTC+02:00" ]
+​​
+topLevelDomain: Array [ ".ax" ]
+​​
+translations: Object { de: "Åland", es: "Alandia", fr: "Åland", … }
+​​
+<prototype>: Object { … }
+​
+1: Object { name: "American Samoa", alpha2Code: "AS", alpha3Code: "ASM", … }
+​
+2: Object { name: "Andorra", alpha2Code: "AD", alpha3Code: "AND", … }
+​
+3: Object { name: "Anguilla", alpha2Code: "AI", alpha3Code: "AIA", … }
+​
+4: Object { name: "Antarctica", alpha2Code: "AQ", alpha3Code: "ATA", … }
+​
+5: Object { name: "Antigua and Barbuda", alpha2Code: "AG", alpha3Code: "ATG", … }
+​
+6: Object { name: "Aruba", alpha2Code: "AW", alpha3Code: "ABW", … }
+​
+7: Object { name: "Bermuda", alpha2Code: "BM", alpha3Code: "BMU", … }
+​
+8: Object { name: "Bonaire, Sint Eustatius and Saba", alpha2Code: "BQ", alpha3Code: "BES", … }
+​
+9: Object { name: "Bouvet Island", alpha2Code: "BV", alpha3Code: "BVT", … }
+​
+10: Object { name: "British Indian Ocean Territory", alpha2Code: "IO", alpha3Code: "IOT", … }
+​
+11: Object { name: "United States Minor Outlying Islands", alpha2Code: "UM", alpha3Code: "UMI", … }
+​
+12: Object { name: "Virgin Islands (British)", alpha2Code: "VG", alpha3Code: "VGB", … }
+​
+13: Object { name: "Virgin Islands (U.S.)", alpha2Code: "VI", alpha3Code: "VIR", … }
+​
+14: Object { name: "Cayman Islands", alpha2Code: "KY", alpha3Code: "CYM", … }
+​
+15: Object { name: "Christmas Island", alpha2Code: "CX", alpha3Code: "CXR", … }
+​
+16: Object { name: "Cocos (Keeling) Islands", alpha2Code: "CC", alpha3Code: "CCK", … }
+​
+17: Object { name: "Cook Islands", alpha2Code: "CK", alpha3Code: "COK", … }
+​
+18: Object { name: "Curaçao", alpha2Code: "CW", alpha3Code: "CUW", … }
+​
+19: Object { name: "Dominica", alpha2Code: "DM", alpha3Code: "DMA", … }
+​
+20: Object { name: "Falkland Islands (Malvinas)", alpha2Code: "FK", alpha3Code: "FLK", … }
+​
+21: Object { name: "Faroe Islands", alpha2Code: "FO", alpha3Code: "FRO", … }
+​
+22: Object { name: "French Southern Territories", alpha2Code: "TF", alpha3Code: "ATF", … }
+​
+23: Object { name: "Gibraltar", alpha2Code: "GI", alpha3Code: "GIB", … }
+​
+24: Object { name: "Greenland", alpha2Code: "GL", alpha3Code: "GRL", … }
+​
+25: Object { name: "Grenada", alpha2Code: "GD", alpha3Code: "GRD", … }
+​
+26: Object { name: "Guam", alpha2Code: "GU", alpha3Code: "GUM", … }
+​
+27: Object { name: "Guernsey", alpha2Code: "GG", alpha3Code: "GGY", … }
+​
+28: Object { name: "Heard Island and McDonald Islands", alpha2Code: "HM", alpha3Code: "HMD", … }
+​
+29: Object { name: "Holy See", alpha2Code: "VA", alpha3Code: "VAT", … }
+​
+30: Object { name: "Isle of Man", alpha2Code: "IM", alpha3Code: "IMN", … }
+​
+31: Object { name: "Jersey", alpha2Code: "JE", alpha3Code: "JEY", … }
+​
+32: Object { name: "Kiribati", alpha2Code: "KI", alpha3Code: "KIR", … }
+​
+33: Object { name: "Liechtenstein", alpha2Code: "LI", alpha3Code: "LIE", … }
+​
+34: Object { name: "Marshall Islands", alpha2Code: "MH", alpha3Code: "MHL", … }
+​
+35: Object { name: "Micronesia (Federated States of)", alpha2Code: "FM", alpha3Code: "FSM", … }
+​
+36: Object { name: "Monaco", alpha2Code: "MC", alpha3Code: "MCO", … }
+​
+37: Object { name: "Montserrat", alpha2Code: "MS", alpha3Code: "MSR", … }
+​
+38: Object { name: "Nauru", alpha2Code: "NR", alpha3Code: "NRU", … }
+​
+39: Object { name: "Niue", alpha2Code: "NU", alpha3Code: "NIU", … }
+​
+40: Object { name: "Norfolk Island", alpha2Code: "NF", alpha3Code: "NFK", … }
+​
+41: Object { name: "Northern Mariana Islands", alpha2Code: "MP", alpha3Code: "MNP", … }
+​
+42: Object { name: "Palau", alpha2Code: "PW", alpha3Code: "PLW", … }
+​
+43: Object { name: "Pitcairn", alpha2Code: "PN", alpha3Code: "PCN", … }
+​
+44: Object { name: "Saint Barthélemy", alpha2Code: "BL", alpha3Code: "BLM", … }
+​
+45: Object { name: "Saint Helena, Ascension and Tristan da Cunha", alpha2Code: "SH", alpha3Code: "SHN", … }
+​
+46: Object { name: "Saint Kitts and Nevis", alpha2Code: "KN", alpha3Code: "KNA", … }
+​
+47: Object { name: "Saint Lucia", alpha2Code: "LC", alpha3Code: "LCA", … }
+​
+48: Object { name: "Saint Martin (French part)", alpha2Code: "MF", alpha3Code: "MAF", … }
+​
+49: Object { name: "Saint Pierre and Miquelon", alpha2Code: "PM", alpha3Code: "SPM", … }
+​
+50: Object { name: "Saint Vincent and the Grenadines", alpha2Code: "VC", alpha3Code: "VCT", … }
+​
+51: Object { name: "Samoa", alpha2Code: "WS", alpha3Code: "WSM", … }
+​
+52: Object { name: "San Marino", alpha2Code: "SM", alpha3Code: "SMR", … }
+​
+53: Object { name: "Sao Tome and Principe", alpha2Code: "ST", alpha3Code: "STP", … }
+​
+54: Object { name: "Seychelles", alpha2Code: "SC", alpha3Code: "SYC", … }
+​
+55: Object { name: "Sint Maarten (Dutch part)", alpha2Code: "SX", alpha3Code: "SXM", … }
+​
+56: Object { name: "South Georgia and the South Sandwich Islands", alpha2Code: "GS", alpha3Code: "SGS", … }
+​
+57: Object { name: "Svalbard and Jan Mayen", alpha2Code: "SJ", alpha3Code: "SJM", … }
+​
+58: Object { name: "Tokelau", alpha2Code: "TK", alpha3Code: "TKL", … }
+​
+59: Object { name: "Tonga", alpha2Code: "TO", alpha3Code: "TON", … }
+​
+60: Object { name: "Turks and Caicos Islands", alpha2Code: "TC", alpha3Code: "TCA", … }
+​
+61: Object { name: "Tuvalu", alpha2Code: "TV", alpha3Code: "TUV", … }
+​
+62: Object { name: "Wallis and Futuna", alpha2Code: "WF", alpha3Code: "WLF", … }
+​
+length: 63
+​
+<prototype>: Array []
+
+
+c)Print the following details name, capital, flag using forEach function
+
+code:
+
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json")
+xhr.onload=function(){
+    if(xhr.status>=200 && xhr.status<300)
+    {
+        let data=JSON.parse(xhr.response)
+        data.forEach((info)=>
+        console.log(`
+        name:${info.name}
+        capital:${info.capital}
+        flag:${info.flag}`))
+    }
+}
+
+xhr.send()
+
+output:
+
+
+        name:Åland Islands
+        capital:Mariehamn
+        flag:https://restcountries.eu/data/ala.svg java.js:8:17
+
+        name:Albania
+        capital:Tirana
+        flag:https://restcountries.eu/data/alb.svg java.js:8:17
+
+        name:Algeria
+        capital:Algiers
+        flag:https://restcountries.eu/data/dza.svg java.js:8:17
+
+        name:American Samoa
+        capital:Pago Pago
+        flag:https://restcountries.eu/data/asm.svg java.js:8:17
+
+        name:Andorra
+        capital:Andorra la Vella
+        flag:https://restcountries.eu/data/and.svg java.js:8:17
+
+        name:Angola
+        capital:Luanda
+        flag:https://restcountries.eu/data/ago.svg java.js:8:17
+
+        name:Anguilla
+        capital:The Valley
+        flag:https://restcountries.eu/data/aia.svg java.js:8:17
+
+        name:Antarctica
+        capital:
+        flag:https://restcountries.eu/data/ata.svg java.js:8:17
+
+        name:Antigua and Barbuda
+        capital:Saint John's
+        flag:https://restcountries.eu/data/atg.svg java.js:8:17
+
+        name:Argentina
+        capital:Buenos Aires
+        flag:https://restcountries.eu/data/arg.svg java.js:8:17
+
+        name:Armenia
+        capital:Yerevan
+        flag:https://restcountries.eu/data/arm.svg java.js:8:17
+
+        name:Aruba
+        capital:Oranjestad
+        flag:https://restcountries.eu/data/abw.svg java.js:8:17
+
+        name:Australia
+        capital:Canberra
+        flag:https://restcountries.eu/data/aus.svg java.js:8:17
+
+        name:Austria
+        capital:Vienna
+        flag:https://restcountries.eu/data/aut.svg java.js:8:17
+
+        name:Azerbaijan
+        capital:Baku
+        flag:https://restcountries.eu/data/aze.svg java.js:8:17
+
+        name:Bahamas
+        capital:Nassau
+        flag:https://restcountries.eu/data/bhs.svg java.js:8:17
+
+        name:Bahrain
+        capital:Manama
+        flag:https://restcountries.eu/data/bhr.svg java.js:8:17
+
+        name:Bangladesh
+        capital:Dhaka
+        flag:https://restcountries.eu/data/bgd.svg java.js:8:17
+
+        name:Barbados
+        capital:Bridgetown
+        flag:https://restcountries.eu/data/brb.svg java.js:8:17
+
+        name:Belarus
+        capital:Minsk
+        flag:https://restcountries.eu/data/blr.svg java.js:8:17
+
+        name:Belgium
+        capital:Brussels
+        flag:https://restcountries.eu/data/bel.svg java.js:8:17
+
+        name:Belize
+        capital:Belmopan
+        flag:https://restcountries.eu/data/blz.svg java.js:8:17
+
+        name:Benin
+        capital:Porto-Novo
+        flag:https://restcountries.eu/data/ben.svg java.js:8:17
+
+        name:Bermuda
+        capital:Hamilton
+        flag:https://restcountries.eu/data/bmu.svg java.js:8:17
+
+        name:Bhutan
+        capital:Thimphu
+        flag:https://restcountries.eu/data/btn.svg java.js:8:17
+
+        name:Bolivia (Plurinational State of)
+        capital:Sucre
+        flag:https://restcountries.eu/data/bol.svg java.js:8:17
+
+        name:Bonaire, Sint Eustatius and Saba
+        capital:Kralendijk
+        flag:https://restcountries.eu/data/bes.svg java.js:8:17
+
+        name:Bosnia and Herzegovina
+        capital:Sarajevo
+        flag:https://restcountries.eu/data/bih.svg java.js:8:17
+
+        name:Botswana
+        capital:Gaborone
+        flag:https://restcountries.eu/data/bwa.svg java.js:8:17
+
+        name:Bouvet Island
+        capital:
+        flag:https://restcountries.eu/data/bvt.svg java.js:8:17
+
+        name:Brazil
+        capital:Brasília
+        flag:https://restcountries.eu/data/bra.svg java.js:8:17
+
+        name:British Indian Ocean Territory
+        capital:Diego Garcia
+        flag:https://restcountries.eu/data/iot.svg java.js:8:17
+
+        name:United States Minor Outlying Islands
+        capital:
+        flag:https://restcountries.eu/data/umi.svg java.js:8:17
+
+        name:Virgin Islands (British)
+        capital:Road Town
+        flag:https://restcountries.eu/data/vgb.svg java.js:8:17
+
+        name:Virgin Islands (U.S.)
+        capital:Charlotte Amalie
+        flag:https://restcountries.eu/data/vir.svg java.js:8:17
+
+        name:Brunei Darussalam
+        capital:Bandar Seri Begawan
+        flag:https://restcountries.eu/data/brn.svg java.js:8:17
+
+        name:Bulgaria
+        capital:Sofia
+        flag:https://restcountries.eu/data/bgr.svg java.js:8:17
+
+        name:Burkina Faso
+        capital:Ouagadougou
+        flag:https://restcountries.eu/data/bfa.svg java.js:8:17
+
+        name:Burundi
+        capital:Bujumbura
+        flag:https://restcountries.eu/data/bdi.svg java.js:8:17
+
+        name:Cambodia
+        capital:Phnom Penh
+        flag:https://restcountries.eu/data/khm.svg java.js:8:17
+
+        name:Cameroon
+        capital:Yaoundé
+        flag:https://restcountries.eu/data/cmr.svg java.js:8:17
+
+        name:Canada
+        capital:Ottawa
+        flag:https://restcountries.eu/data/can.svg java.js:8:17
+
+        name:Cabo Verde
+        capital:Praia
+        flag:https://restcountries.eu/data/cpv.svg java.js:8:17
+
+        name:Cayman Islands
+        capital:George Town
+        flag:https://restcountries.eu/data/cym.svg java.js:8:17
+
+        name:Central African Republic
+        capital:Bangui
+        flag:https://restcountries.eu/data/caf.svg java.js:8:17
+
+        name:Chad
+        capital:N'Djamena
+        flag:https://restcountries.eu/data/tcd.svg java.js:8:17
+
+        name:Chile
+        capital:Santiago
+        flag:https://restcountries.eu/data/chl.svg java.js:8:17
+
+        name:China
+        capital:Beijing
+        flag:https://restcountries.eu/data/chn.svg java.js:8:17
+
+        name:Christmas Island
+        capital:Flying Fish Cove
+        flag:https://restcountries.eu/data/cxr.svg java.js:8:17
+
+        name:Cocos (Keeling) Islands
+        capital:West Island
+        flag:https://restcountries.eu/data/cck.svg java.js:8:17
+
+        name:Colombia
+        capital:Bogotá
+        flag:https://restcountries.eu/data/col.svg java.js:8:17
+
+        name:Comoros
+        capital:Moroni
+        flag:https://restcountries.eu/data/com.svg java.js:8:17
+
+        name:Congo
+        capital:Brazzaville
+        flag:https://restcountries.eu/data/cog.svg java.js:8:17
+
+        name:Congo (Democratic Republic of the)
+        capital:Kinshasa
+        flag:https://restcountries.eu/data/cod.svg java.js:8:17
+
+        name:Cook Islands
+        capital:Avarua
+        flag:https://restcountries.eu/data/cok.svg java.js:8:17
+
+        name:Costa Rica
+        capital:San José
+        flag:https://restcountries.eu/data/cri.svg java.js:8:17
+
+        name:Croatia
+        capital:Zagreb
+        flag:https://restcountries.eu/data/hrv.svg java.js:8:17
+
+        name:Cuba
+        capital:Havana
+        flag:https://restcountries.eu/data/cub.svg java.js:8:17
+
+        name:Curaçao
+        capital:Willemstad
+        flag:https://restcountries.eu/data/cuw.svg java.js:8:17
+
+        name:Cyprus
+        capital:Nicosia
+        flag:https://restcountries.eu/data/cyp.svg java.js:8:17
+
+        name:Czech Republic
+        capital:Prague
+        flag:https://restcountries.eu/data/cze.svg java.js:8:17
+
+        name:Denmark
+        capital:Copenhagen
+        flag:https://restcountries.eu/data/dnk.svg java.js:8:17
+
+        name:Djibouti
+        capital:Djibouti
+        flag:https://restcountries.eu/data/dji.svg java.js:8:17
+
+        name:Dominica
+        capital:Roseau
+        flag:https://restcountries.eu/data/dma.svg java.js:8:17
+
+        name:Dominican Republic
+        capital:Santo Domingo
+        flag:https://restcountries.eu/data/dom.svg java.js:8:17
+
+        name:Ecuador
+        capital:Quito
+        flag:https://restcountries.eu/data/ecu.svg java.js:8:17
+
+        name:Egypt
+        capital:Cairo
+        flag:https://restcountries.eu/data/egy.svg java.js:8:17
+
+        name:El Salvador
+        capital:San Salvador
+        flag:https://restcountries.eu/data/slv.svg java.js:8:17
+
+        name:Equatorial Guinea
+        capital:Malabo
+        flag:https://restcountries.eu/data/gnq.svg java.js:8:17
+
+        name:Eritrea
+        capital:Asmara
+        flag:https://restcountries.eu/data/eri.svg java.js:8:17
+
+        name:Estonia
+        capital:Tallinn
+        flag:https://restcountries.eu/data/est.svg java.js:8:17
+
+d)Print the total population of countries using reduce function
+
+code:
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json")
+xhr.onload=function(){
+    if(xhr.status>=200 && xhr.status<300)
+    {
+        let data=JSON.parse(xhr.response)
+        let info=data.reduce((acc,curr)=>acc + curr.population,0)
+        console.log(info)
+    }
+}
+
+xhr.send()
+
+output:
+
+7349137231
+
+
+d)Print the country which uses US Dollars as currency.
+
+answer:
+
+code:
+
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json")
+xhr.onload=function(){
+    if(xhr.status>=200 && xhr.status<300)
+    {
+        var data=JSON.parse(xhr.response)
+        for(var i=0;i<data.length;i++)
+        {
+            var dat=data[i].currencies
+            var info=dat.map((cur)=>cur.symbol)
+            if(info=="$")
+            {
+                console.log(`
+                Country:${data[i].name}
+                currency:${info}`)
+                
+            }
+        }
+        
+    
+    }
+}
+
+xhr.send()
+
+
+output:
+
+                Country:American Samoa
+                currency:$ java.js:13:25
+
+                Country:Anguilla
+                currency:$ java.js:13:25
+
+                Country:Antigua and Barbuda
+                currency:$ java.js:13:25
+
+                Country:Argentina
+                currency:$ java.js:13:25
+
+                Country:Australia
+                currency:$ java.js:13:25
+
+                Country:Bahamas
+                currency:$ java.js:13:25
+
+                Country:Barbados
+                currency:$ java.js:13:25
+
+                Country:Belize
+                currency:$ java.js:13:25
+
+                Country:Bermuda
+                currency:$ java.js:13:25
+
+                Country:Bonaire, Sint Eustatius and Saba
+                currency:$ java.js:13:25
+
+                Country:British Indian Ocean Territory
+                currency:$ java.js:13:25
+
+                Country:United States Minor Outlying Islands
+                currency:$ java.js:13:25
+
+                Country:Virgin Islands (U.S.)
+                currency:$ java.js:13:25
+
+                Country:Canada
+                currency:$ java.js:13:25
+
+                Country:Cayman Islands
+                currency:$ java.js:13:25
+
+                Country:Chile
+                currency:$ java.js:13:25
+
+                Country:Christmas Island
+                currency:$ java.js:13:25
+
+                Country:Cocos (Keeling) Islands
+                currency:$ java.js:13:25
+
+                Country:Colombia
+                currency:$ java.js:13:25
+
+                Country:Dominica
+                currency:$ java.js:13:25
+
+                Country:Dominican Republic
+                currency:$ java.js:13:25
+
+                Country:Ecuador
+                currency:$ java.js:13:25
+
+                Country:El Salvador
+                currency:$ java.js:13:25
+
+                Country:Fiji
+                currency:$ java.js:13:25
+
+                Country:Grenada
+                currency:$ java.js:13:25
+
+                Country:Guam
+                currency:$ java.js:13:25
+
+                Country:Guyana
+                currency:$ java.js:13:25
+
+                Country:Heard Island and McDonald Islands
+                currency:$ java.js:13:25
+
+                Country:Hong Kong
+                currency:$ java.js:13:25
+
+                Country:Jamaica
+                currency:$ java.js:13:25
+
+                Country:Liberia
+                currency:$ java.js:13:25
+
+                Country:Marshall Islands
+                currency:$
+
+
+
+
